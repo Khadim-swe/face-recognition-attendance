@@ -2,11 +2,11 @@ from tkinter import*
 from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter import messagebox
-import mysql.connector
-import cv2
+import mysql.connector # type: ignore
+import cv2 # type: ignore
 
 import os
-import numpy as np
+import numpy as np # type: ignore
 
 
 class Train:

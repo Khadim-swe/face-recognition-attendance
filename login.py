@@ -3,7 +3,7 @@ from tkinter import*
 from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter import messagebox
-import mysql.connector
+import mysql.connector # type: ignore
 import os
 from time import strftime
 from student import Student
