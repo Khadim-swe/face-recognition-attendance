@@ -2,11 +2,12 @@ from tkinter import*
 from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter import messagebox
-import mysql.connector # type: ignore
-import cv2 # type: ignore
+import mysql.connector 
+import PIL
+import cv2
 
 import os
-import numpy as np # type: ignore
+import numpy as np
 
 
 class Train:
@@ -22,8 +23,8 @@ class Train:
         back_btn.place(x=1050, y=0,height=32)
 
         # ====FOR Top Image========
-        img_top = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\facialrecognition.png")
-        img_top = img_top.resize((1275, 310), Image.ANTIALIAS)
+        img_top = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\background.JPG")
+        img_top = img_top.resize((1275, 310),  PIL.Image.Resampling.LANCZOS)
         self.photoimg_top = ImageTk.PhotoImage(img_top)
 
         f_lbl = Label(self.root, image=self.photoimg_top)
@@ -33,8 +34,8 @@ class Train:
         b1_1 = Button(self.root, text="TRAIN DATA",command=self.train_classifier, cursor="hand2", font=("times new roman", 30, "bold"), bg="red", fg="white")
         b1_1.place(x=0, y=350, width=1275, height=60)
         # ====FOR Bottom Image=====
-        img_bottom = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\clg.jpg")
-        img_bottom = img_bottom.resize((1275, 315), Image.ANTIALIAS)
+        img_bottom = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\background.JPG")
+        img_bottom = img_bottom.resize((1275, 315), PIL.Image.Resampling.LANCZOS)
         self.photoimg_bottom = ImageTk.PhotoImage(img_bottom)
 
         f_lbl = Label(self.root, image=self.photoimg_bottom)

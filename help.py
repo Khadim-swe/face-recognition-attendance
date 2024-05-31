@@ -1,6 +1,7 @@
 from tkinter import*
 from tkinter import ttk
 from PIL import Image, ImageTk
+import PIL
 from tkinter import messagebox
 
 
@@ -19,8 +20,8 @@ class Help:
         back_btn.place(x=1050, y=0,height=35)
 
         # ====FOR Main Image========
-        img_top = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\1_5TRuG7tG0KrZJXKoFtHlSg.jpeg")
-        img_top = img_top.resize((1270, 700), Image.ANTIALIAS)
+        img_top = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+        img_top = img_top.resize((1270, 700), PIL.Image.Resampling.LANCZOS)
         self.photoimg_top = ImageTk.PhotoImage(img_top)
         f_lbl = Label(self.root, image=self.photoimg_top)
         f_lbl.place(x=0, y=45, width=1270, height=700)

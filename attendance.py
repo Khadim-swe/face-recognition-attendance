@@ -1,6 +1,7 @@
 from tkinter import*
 from tkinter import ttk
 from PIL import Image, ImageTk
+import PIL
 from tkinter import messagebox
 import mysql.connector
 import cv2
@@ -27,22 +28,22 @@ class Attendance:
 
 
         # ======first image=========
-        img = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\smart-attendance.jpg")
-        img = img.resize((635, 150), Image.ANTIALIAS)
+        img = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+        img = img.resize((635, 150), PIL.Image.Resampling.LANCZOS)
         self.photoimg = ImageTk.PhotoImage(img)
         f_lbl = Label(self.root, image=self.photoimg)
         f_lbl.place(x=0, y=0, width=635, height=150)
 
         # ======second image=========
-        img1 = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\clg.jpg")
-        img1 = img1.resize((635, 150), Image.ANTIALIAS)
+        img1 = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+        img1 = img1.resize((635, 150), PIL.Image.Resampling.LANCZOS)
         self.photoimg1 = ImageTk.PhotoImage(img1)
         f_lbl = Label(self.root, image=self.photoimg1)
         f_lbl.place(x=635, y=0, width=635, height=150)
 
         # ============BackgroundImage==============
-        img2 = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\bg.jpg")
-        img2 = img2.resize((1275, 600), Image.ANTIALIAS)
+        img2 = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+        img2 = img2.resize((1275, 600), PIL.Image.Resampling.LANCZOS)
         self.photoimg2 = ImageTk.PhotoImage(img2)
 
         bg_img = Label(self.root, image=self.photoimg2)
@@ -64,8 +65,8 @@ class Attendance:
         left_frame.place(x=10, y=3, width=610, height=515)
 
         # =====Left Image======
-        img_left = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\images.jpg")
-        img_left = img_left.resize((610, 125), Image.ANTIALIAS)
+        img_left = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+        img_left = img_left.resize((610, 125), PIL.Image.Resampling.LANCZOS)
         self.photoimg_left = ImageTk.PhotoImage(img_left)
         f_lbl = Label(left_frame, image=self.photoimg_left)
         f_lbl.place(x=0, y=0, width=610, height=125)

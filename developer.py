@@ -1,6 +1,7 @@
 from tkinter import*
 from tkinter import ttk
 from PIL import Image, ImageTk
+import PIL
 from tkinter import messagebox
 
 
@@ -18,8 +19,8 @@ class Developer:
         back_btn.place(x=1050, y=0,height=35)
 
         # ====FOR Main Image========
-        img_top = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\dev.jpg")
-        img_top = img_top.resize((1270, 700), Image.ANTIALIAS)
+        img_top = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+        img_top = img_top.resize((1270, 700), PIL.Image.Resampling.LANCZOS)
         self.photoimg_top = ImageTk.PhotoImage(img_top)
         f_lbl = Label(self.root, image=self.photoimg_top)
         f_lbl.place(x=0, y=45, width=1270, height=700)
@@ -29,8 +30,8 @@ class Developer:
         main_frame.place(x=800, y=0, width=450, height=500)
 
         # ====FOR Right Image========
-        img_right = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\IMG-20210310-WA0004.jpg")
-        img_right = img_right.resize((200, 200), Image.ANTIALIAS)
+        img_right = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+        img_right = img_right.resize((200, 200), PIL.Image.Resampling.LANCZOS)
         self.photoimg_right = ImageTk.PhotoImage(img_right)
         f_lbl = Label(main_frame, image=self.photoimg_right)
         f_lbl.place(x=247, y=0, width=200, height=200)
@@ -55,8 +56,8 @@ class Developer:
         develop_label.place(x=0, y=160)
 
         # ====FOR Right Image========
-        img_bottom = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\images (1).jpg")
-        img_bottom = img_bottom.resize((446, 297), Image.ANTIALIAS)
+        img_bottom = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+        img_bottom = img_bottom.resize((446, 297), PIL.Image.Resampling.LANCZOS)
         self.photoimg_bottom = ImageTk.PhotoImage(img_bottom)
         f_lbl = Label(main_frame, image=self.photoimg_bottom)
         f_lbl.place(x=0, y=200, width=446, height=297)
