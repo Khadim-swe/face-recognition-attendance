@@ -1,5 +1,6 @@
 from tkinter import*
 from tkinter import ttk
+import PIL
 from PIL import Image, ImageTk
 from tkinter import messagebox
 import mysql.connector
@@ -27,27 +28,27 @@ class Student:
               self.var_address = StringVar()
               self.var_teacher = StringVar()
 
-              img = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\images.jpg")
-              img = img.resize((425, 115), Image.ANTIALIAS)
+              img = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+              img = img.resize((425, 115), PIL.Image.Resampling.LANCZOS)
               self.photoimg = ImageTk.PhotoImage(img)
               f_lbl = Label(self.root, image=self.photoimg)
               f_lbl.place(x=0, y=0, width=425, height=115)
 
-              img1 = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\smart-attendance.jpg")
-              img1 = img1.resize((425, 115), Image.ANTIALIAS)
+              img1 = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college2.JPEG")
+              img1 = img1.resize((425, 115), PIL.Image.Resampling.LANCZOS)
               self.photoimg1 = ImageTk.PhotoImage(img1)
               f_lbl = Label(self.root, image=self.photoimg1)
               f_lbl.place(x=425, y=0, width=425, height=115)
 
-              img2 = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\clg.jpg")
-              img2 = img2.resize((425, 115), Image.ANTIALIAS)
+              img2 = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college3.JPEG")
+              img2 = img2.resize((425, 115), PIL.Image.Resampling.LANCZOS)
               self.photoimg2 = ImageTk.PhotoImage(img2)
               f_lbl = Label(self.root, image=self.photoimg2)
               f_lbl.place(x=850, y=0, width=425, height=115)
 
               # ============BackgroundImage==============
-              img3 = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\university.jpg")
-              img3 = img3.resize((1275, 710), Image.ANTIALIAS)
+              img3 = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+              img3 = img3.resize((1275, 710), PIL.Image.Resampling.LANCZOS)
               self.photoimg3 = ImageTk.PhotoImage(img3)
 
               bg_img = Label(self.root, image=self.photoimg3)
@@ -71,8 +72,8 @@ class Student:
               left_Frame = LabelFrame(main_frame, bd=2, bg="white",fg="red", relief=RIDGE, text="Student Information", font=("times new roman", 12, "bold"))
               left_Frame.place(x=15, y=0, width=600, height=580)
 
-              img_left = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\girl.jpeg")
-              img_left = img_left.resize((600, 115), Image.ANTIALIAS)
+              img_left = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+              img_left = img_left.resize((600, 115), PIL.Image.Resampling.LANCZOS)
               self.photoimg_left = ImageTk.PhotoImage(img_left)
               f_lbl = Label(left_Frame, image=self.photoimg_left)
               f_lbl.place(x=0, y=0, width=600, height=115)
@@ -146,11 +147,11 @@ class Student:
               class_division_combo.grid(row=1, column=1, padx=10, pady=5, sticky="w")
 
               # ======Roll Number=======
-              roll_no_labl = Label(Class_Student_Frame, text="Roll No:", font=("times new roman", 11, "bold"), bg="white")
-              roll_no_labl.grid(row=1, column=2, padx=10, sticky="w")
+              Roll_labl = Label(Class_Student_Frame, text="Roll No:", font=("times new roman", 11, "bold"), bg="white")
+              Roll_labl.grid(row=1, column=2, padx=10, sticky="w")
 
-              roll_no_entry = ttk.Entry(Class_Student_Frame, textvariable=self.var_roll, width=15, font=("times new roman", 11, "bold"))
-              roll_no_entry.grid(row=1, column=3, padx=10, pady=5, sticky="w")
+              Roll_entry = ttk.Entry(Class_Student_Frame, textvariable=self.var_roll, width=15, font=("times new roman", 11, "bold"))
+              Roll_entry.grid(row=1, column=3, padx=10, pady=5, sticky="w")
 
               # ======Gender=======
               gender_labl = Label(Class_Student_Frame, text="Gender:", font=("times new roman", 11, "bold"), bg="white")
@@ -231,8 +232,8 @@ class Student:
               update_photo_btn.grid(row=0, column=1)
 
               # ========Small Image=======
-              img_small = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\clg.jpg")
-              img_small = img_small.resize((300, 65), Image.ANTIALIAS)
+              img_small = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+              img_small = img_small.resize((300, 65), PIL.Image.Resampling.LANCZOS)
               self.photoimg_small = ImageTk.PhotoImage(img_small)
               f_lbl = Label(Class_Student_Frame, image=self.photoimg_small)
               f_lbl.place(x=285, y=165, width=300, height=65)
@@ -241,8 +242,8 @@ class Student:
               Right_Frame = LabelFrame(main_frame, bd=2, bg="white",fg="red", relief=RIDGE, text="Student Details", font=("times new roman", 12, "bold"))
               Right_Frame.place(x=630, y=0, width=600, height=580)
 
-              img_right = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\student.jpg")
-              img_right = img_right.resize((600, 200), Image.ANTIALIAS)
+              img_right = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+              img_right = img_right.resize((600, 200), PIL.Image.Resampling.LANCZOS)
               self.photoimg_right = ImageTk.PhotoImage(img_right)
               f_lbl = Label(Right_Frame, image=self.photoimg_right)
               f_lbl.place(x=0, y=0, width=600, height=200)
@@ -256,7 +257,7 @@ class Student:
               search_labl.grid(row=0, column=0, padx=5, sticky="w")
 
               search_combo = ttk.Combobox(search_Frame, font=("times new roman", 10, "bold"), width=10, state="readonly")
-              search_combo["values"] = ("Select Option", "Roll_NO", "Name", "Phon_No")
+              search_combo["values"] = ("Select Option", "Roll", "Name", "Phon_No")
               search_combo.current(0)
               search_combo.grid(row=0, column=1, padx=2, pady=10, sticky="w")
 
@@ -277,7 +278,7 @@ class Student:
               scroll_x = Scrollbar(table_Frame, orient=HORIZONTAL)
               scroll_y = Scrollbar(table_Frame, orient=VERTICAL)
 
-              self.Student_table = ttk.Treeview(table_Frame, columns=("dep", "course", "year", "semester", "student_id", "student_name", "class_division", "roll_no", "gender", "dob", "email", "phone", "address", "teacher_name", "photo"), xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
+              self.Student_table = ttk.Treeview(table_Frame, columns=("dep", "course", "year", "semester", "student_id", "student_name", "class_division", "Roll", "gender", "dob", "email", "phone", "address", "teacher_name", "photo"), xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
               scroll_x.pack(side=BOTTOM, fill=X)
               scroll_y.pack(side=RIGHT, fill=Y)
 
@@ -291,7 +292,7 @@ class Student:
               self.Student_table.heading("student_id", text="Student ID")
               self.Student_table.heading("student_name", text="Student Name")
               self.Student_table.heading("class_division", text="Division")
-              self.Student_table.heading("roll_no", text="Roll No")
+              self.Student_table.heading("Roll", text="Roll No")
               self.Student_table.heading("gender", text="Gender")
               self.Student_table.heading("dob", text="D.O.B")
               self.Student_table.heading("email", text="Email")
@@ -308,7 +309,7 @@ class Student:
               self.Student_table.column("student_id", width=100)
               self.Student_table.column("student_name", width=100)
               self.Student_table.column("class_division", width=100)
-              self.Student_table.column("roll_no", width=100)
+              self.Student_table.column("Roll", width=100)
               self.Student_table.column("gender", width=100)
               self.Student_table.column("dob", width=100)
               self.Student_table.column("email", width=100)
@@ -327,7 +328,7 @@ class Student:
                     messagebox.showerror("Error", "All Fields are required", parent=self.root)
                  else:
                      try:
-                         conn = mysql.connector.connect(host="localhost", username="root", password="khadim", database="face_recognizer")
+                         conn = mysql.connector.connect(host="localhost", username="root", password="root", database="face_recognizer")
                          my_cursor = conn.cursor()
                          my_cursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
 
@@ -356,7 +357,7 @@ class Student:
 
              # ==============Fetch Data===================
              def fetch_data(self):
-                 conn = mysql.connector.connect(host="localhost", username="root", password="khadim", database="face_recognizer")
+                 conn = mysql.connector.connect(host="localhost", username="root", password="root", database="face_recognizer")
                  my_cursor = conn.cursor()
                  my_cursor.execute("select * from student")
                  data = my_cursor.fetchall()
@@ -397,9 +398,9 @@ class Student:
                      try:
                          Update = messagebox.askyesno("Update", "Do you want to update this student details", parent=self.root)
                          if Update>0:
-                             conn = mysql.connector.connect(host="localhost", username="root", password="khadim", database="face_recognizer")
+                             conn = mysql.connector.connect(host="localhost", username="root", password="root", database="face_recognizer")
                              my_cursor = conn.cursor()
-                             my_cursor.execute("update student set Dep=%s,Course=%s,Year=%s,Semester=%s,Name=%s,Division=%s,Roll_no=%s,Gender=%s,Dob=%s,Email=%s,Phone=%s,Address=%s,Teacher=%s,PhotoSample=%s  where Student_id=%s",(
+                             my_cursor.execute("update student set Dep=%s,Course=%s,Year=%s,Semester=%s,Name=%s,Division=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,Phone=%s,Address=%s,Teacher=%s,PhotoSample=%s  where Student_id=%s",(
 
                                                                                                                                                                                              self.var_dep.get(),
                                                                                                                                                                                              self.var_course.get(),
@@ -435,7 +436,7 @@ class Student:
                      try:
                          delete = messagebox.askyesno("Student Delete Page", "Do you want to delete this student", parent=self.root)
                          if delete > 0:
-                             conn = mysql.connector.connect(host="localhost", username="root", password="khadim", database="face_recognizer")
+                             conn = mysql.connector.connect(host="localhost", username="root", password="root", database="face_recognizer")
                              my_cursor = conn.cursor()
                              query="delete from student where Student_id=%s"
                              value=(self.var_std_id.get(),)
@@ -474,14 +475,14 @@ class Student:
                      messagebox.showerror("Error", "All Fields are required", parent=self.root)
                  else:
                      try:
-                         conn = mysql.connector.connect(host="localhost", username="root", password="khadim",database="face_recognizer")
+                         conn = mysql.connector.connect(host="localhost", username="root", password="root",database="face_recognizer")
                          my_cursor = conn.cursor()
                          my_cursor.execute("select * from student")
                          myresult=my_cursor.fetchall()
                          id=0
                          for x in myresult:
                              id+=1
-                         my_cursor.execute("update student set Dep=%s,Course=%s,Year=%s,Semester=%s,Name=%s,Division=%s,Roll_no=%s,Gender=%s,Dob=%s,Email=%s,Phone=%s,Address=%s,Teacher=%s,PhotoSample=%s  where Student_id=%s",(
+                         my_cursor.execute("update student set Dep=%s,Course=%s,Year=%s,Semester=%s,Name=%s,Division=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,Phone=%s,Address=%s,Teacher=%s,PhotoSample=%s  where Student_id=%s",(
 
                                                                                                                                                                                      self.var_dep.get(),
                                                                                                                                                                                      self.var_course.get(),
@@ -528,7 +529,7 @@ class Student:
                                  cv2.putText(face,str(img_id),(50,50),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),2)
                                  cv2.imshow("Cropped Face",face)
 
-                             if cv2.waitKey(1)==13 or int(img_id)==100:
+                             if cv2.waitKey(1)==13 or int(img_id)==50:
                                 break
                          cap.release()
                          cv2.destroyAllWindows()

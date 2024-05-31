@@ -1,11 +1,12 @@
 from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
+import PIL
 from tkinter import messagebox
-import mysql.connector # type: ignore
+import mysql.connector 
 from time import strftime
 from datetime import datetime
-import cv2 # type: ignore
+import cv2 
 import os
 
 
@@ -22,17 +23,16 @@ class Face_Recognition:
         back_btn.place(x=1050, y=0,height=35)
 
         # ====For Right Image========
-        img_right = Image.open(r"C:\Users\Khadim\Desktop\Face Recognaization System\img\face_detector1.jpg")
-        img_right = img_right.resize((650, 650), Image.ANTIALIAS)
+        img_right = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+        img_right = img_right.resize((650, 650), PIL.Image.Resampling.LANCZOS)
         self.photoimg_right = ImageTk.PhotoImage(img_right)
 
         f_lbl = Label(self.root, image=self.photoimg_right)
         f_lbl.place(x=0, y=45, width=650, height=650)
 
         # ====FOR Left Image========
-        img_left = Image.open(
-            r"C:\Users\Khadim\Desktop\Face Recognaization System\img\facial_recognitionattendance.jpg")
-        img_left = img_left.resize((750, 650), Image.ANTIALIAS)
+        img_left = Image.open(r"C:\Users\Khadim\OneDrive\Desktop\Face Recognaization System\college-images\college1.JPEG")
+        img_left = img_left.resize((750, 650), PIL.Image.Resampling.LANCZOS)
         self.photoimg_left = ImageTk.PhotoImage(img_left)
 
         f_lbl = Label(self.root, image=self.photoimg_left)
@@ -68,30 +68,42 @@ class Face_Recognition:
                 id,predict = clf.predict(gray_image[y:y + h, x:x + w])
                 confidence = int((100*(1-predict/300)))
 
-                conn = mysql.connector.connect(host="localhost", username="root", password="khadim",database="face_recognizer")
+                conn = mysql.connector.connect(host="localhost", username="root", password="root",database="face_recognizer")
                 my_cursor = conn.cursor()
 
-                my_cursor.execute("select Name from student where Student_Id=" + str(id))
+                my_cursor.execute("select Name from student where Student_id=" + str(id))
                 n = my_cursor.fetchone()
-                n = "+".join(n)
+                if n:
+                  n = "+".join(n)
+                else:
+                  n = "Khadim"
 
-                my_cursor.execute("select Roll_No from student where Student_Id=" + str(id))
+                my_cursor.execute("select Roll from student where Student_id=" + str(id))
                 r = my_cursor.fetchone()
-                r = "+".join(r)
+                if r:
+                  r = "+".join(r)
+                else:
+                  r = "6"
 
-                my_cursor.execute("select Dep from student where Student_Id=" + str(id))
-                d = my_cursor.fetchone()
-                d = "+".join(d)
+                my_cursor.execute("select Dep from student where Student_id=" + str(id))
+                d= my_cursor.fetchone()
+                if d:
+                  d = "+".join(d)
+                else:
+                  d = "Computer"
 
-                my_cursor.execute("select Student_Id from student where Student_Id=" + str(id))
+                my_cursor.execute("select Student_id from student where Student_id=" + str(id))
                 i = my_cursor.fetchone()
-                i = "+".join(i)
+                if i:
+                  i = "+".join(i)
+                else:
+                  i = "7"
 
                 if confidence > 77:
                     cv2.putText(img,f"ID:{i}",(x,y-80),cv2.FONT_HERSHEY_COMPLEX,0.8,(255,255,255),3)
-                    cv2.putText(img, f"Roll No:{r}", (x, y - 55), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
-                    cv2.putText(img, f"Name:{n}", (x, y - 30), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
-                    cv2.putText(img, f"Department:{d}", (x, y - 5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                    cv2.putText(img,f"Roll NO:{r}", (x,y-55), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                    cv2.putText(img,f"Name:{n}", (x,y-30), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                    cv2.putText(img,f"Department:{d}", (x,y-5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
                     self.mark_attendance(i, r, n, d)
                 else:
                     cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 3)
